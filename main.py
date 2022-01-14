@@ -1,14 +1,8 @@
 # CSE210 Tic-Tac-Toe Assignment.
 # Written by Hiram Anderson
 
+from global_defs import *
 from print_utils import *
-
-# Multipurpose ID vars. Used for data storage, win checking, etc.
-NONE = 0
-PLAYER_X = 1
-PLAYER_O = 2
-PLAYER_A = 3
-TIE = 4
 
 # Main function.
 def main():
@@ -16,12 +10,12 @@ def main():
 
     # Init game vars
     turn = -1
-    boards = [[NONE] * 9] * 3
+    boards = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]]
 
     # Keep doing turns until the game ends.
     while True:
-        print("\n-------------------------------")
-        print_boards()
+        print()
+        print_boards(boards)
         print()
         turn += 1
         player = (turn % 3) + 1
@@ -39,7 +33,8 @@ def title_screen():
     print("-", end="")
     print_color(GREEN, "Tri")
     print_color(PURPLE, "Three Boards. ", end="")
-    print_color(CYAN, "Three Players.")
+    print_color(CYAN, "Three Players. ", end="")
+    print_color(YELLOW, "One Winner.")
     print()
     input("Press enter to start... ")
 
