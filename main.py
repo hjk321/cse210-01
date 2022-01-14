@@ -3,6 +3,7 @@
 
 from global_defs import *
 from print_utils import *
+from random import randint
 
 # Main function.
 def main():
@@ -17,14 +18,24 @@ def main():
         print()
         print_boards(boards)
         print()
+        win = check_game_end(boards)
+        if win != NONE:
+            break;
         turn += 1
         player = (turn % 3) + 1
         turn_input(boards, player)
-        if check_game_end(boards) != NONE:
-            break;
     
     # The game has ended
-    print("The game has ended. Placeholder message.")
+    if win == DRAW:
+        print("The game has ended in a draw!")
+        names = ["Billy", "Bob", "Joe", "Gus", "Bubba", "Cletus", "Huck"]
+        print("That means some random bystander named " 
+            + names[randint(0, len(names))] + " wins instead!")
+    else:
+        print("The winner is ", end="")
+        print_player_icon(win)
+        print("!\nGood game, everyone!")
+    print(f"The game lasted {turn + 1} turns.")
 
 # Prints the title screen and waits for enter press.
 def title_screen():
@@ -65,6 +76,8 @@ def turn_input(boards, player):
             break
         print("Space already taken.")
 
+# Checks the current board for any win conditions and returns the winning player.
+# If no one has won and there are no remaining spaces to play on, returns DRAW.
 def check_game_end(boards):
     def check_spaces(board, a, b, c):
         if board[a] == board[b] == board[c]:
