@@ -1,4 +1,11 @@
+# Supplementary printing vars/functions
+
 import sys
+
+space_chars = [
+    ["1","2","3","4","5","6","7","8","9"],
+    ["A","B","C","D","E","F","G","H","I"],
+    ["a","b","c","d","e","f","g","h","i"]]
 
 # ANSI codes courtesy of rene-d on Github
 # https://gist.github.com/rene-d/9e584a7dd2935d0f461904b9f2950007
@@ -16,3 +23,12 @@ def print_color(color, message, end="\n"):
     sys.stdout.write(color)
     print(message, end=end)
     sys.stdout.write(RESET)
+
+def print_boards():
+    pass
+
+def print_board_space(board, space):
+    pass
+
+def print_player_icon(player):
+    pass
