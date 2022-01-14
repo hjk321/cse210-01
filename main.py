@@ -26,6 +26,7 @@ def main():
     # The game has ended
     print("The game has ended. Placeholder message.")
 
+# Prints the title screen and waits for enter press.
 def title_screen():
     print_color(BLUE, "Tic", end="")
     print("-", end="")
@@ -38,11 +39,34 @@ def title_screen():
     print()
     input("Press enter to start... ")
 
+# Handles and validates input of a player making a move on the board.
 def turn_input(boards, player):
-    pass
+    def get_space_from_char(char):
+        for b in range(0, 3):
+            for s in range(0, 9):
+                if char == space_chars[b][s]:
+                    return (b, s)
+        return (None, None)
+
+    # Loop until valid input
+    while True:
+        print_player_icon(player)
+        char = input("\'s turn. Enter a space (1-9, A-I, a-i): ")
+        if len(char) == 0:
+            continue
+        char = char[0]
+        board, space = get_space_from_char(char)
+        if board == None:
+            print("Invalid character.")
+            continue
+        # Check if space is empty, and if so, assign this player to that space.
+        if boards[board][space] == NONE:
+            boards[board][space] = player
+            break
+        print("Space already taken.")
 
 def check_game_end(boards):
-    pass
+    return NONE
 
 if __name__ == "__main__":
     main()

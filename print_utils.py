@@ -3,17 +3,6 @@
 import sys
 from global_defs import *
 
-#  0 | 1 | 2  #
-# ----------  #
-#  3 | 4 | 5  #
-# ----------  #
-#  6 | 7 | 8  #
-
-space_chars = [
-    ["1","2","3","4","5","6","7","8","9"],
-    ["A","B","C","D","E","F","G","H","I"],
-    ["a","b","c","d","e","f","g","h","i"]]
-
 # ANSI codes courtesy of rene-d on Github
 # https://gist.github.com/rene-d/9e584a7dd2935d0f461904b9f2950007
 RED        = "\033[1;31m"  
